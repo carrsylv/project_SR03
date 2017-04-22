@@ -1,6 +1,6 @@
 package dao.InterfaceDao;
-
 import beans.EtudiantEntity;
+
 import java.util.List;
 import dao.DAOException;
 

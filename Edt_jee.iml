@@ -22,7 +22,8 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="persistenceUnit" value="98b8614e-50af-4919-9c7e-b32cb984382a" />
+          <factory-entry name="Entities" value="98b8614e-50af-4919-9c7e-b32cb984382a" />
+          <factory-entry name="persistence" value="98b8614e-50af-4919-9c7e-b32cb984382a" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/beans/persitencies.xml" />
       </configuration>

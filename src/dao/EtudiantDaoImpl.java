@@ -2,6 +2,7 @@ package dao;
 
 import dao.InterfaceDao.EtudiantDao;
 import beans.EtudiantEntity;
+
 import static dao.DAOUtilitaire.*; // permet d'inclure les méthodes Utilitaire
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
     private static EtudiantEntity map( ResultSet resultSet ) throws SQLException {
         EtudiantEntity etudiant = new EtudiantEntity();
-        etudiant.setId( resultSet.getInt( "Id" ) );
+        etudiant.setIdEtudiant( resultSet.getInt( "IdEtudiant" ) );
         etudiant.setNom( resultSet.getString( "Nom" ) );
         etudiant.setPrenom( resultSet.getString( "Prenom" ) );
         etudiant.setMail( resultSet.getString( "Mail" ) );
@@ -105,7 +106,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
             valeursAutoGenerees = preparedStatement.getGeneratedKeys();
             if ( valeursAutoGenerees.next() ) {
             /* Puis initialisation de la propriété id du bean Utilisateur avec sa valeur */
-                etu.setId( valeursAutoGenerees.getInt( 1 ) );
+                etu.setIdEtudiant( valeursAutoGenerees.getInt( 1 ) );
             } else {
                 throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
             }

@@ -1,8 +1,8 @@
 package dao;
 
-import beans.ProfesseurEntity;
 import dao.InterfaceDao.ProfesseurDao;
 import static dao.DAOUtilitaire.*;
+import beans.ProfesseurEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 /**
@@ -22,9 +23,9 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
         this.daoFactory = daoFactory;
     }
 
-    private static ProfesseurEntity map(ResultSet resultSet ) throws SQLException {
+    public static ProfesseurEntity map(ResultSet resultSet ) throws SQLException {
         ProfesseurEntity prof = new ProfesseurEntity();
-        prof.setId( resultSet.getInt( "Id" ) );
+        prof.setIdProfesseur( resultSet.getInt( "IdProfesseur" ) );
         prof.setNom( resultSet.getString( "Nom" ) );
         prof.setPrenom( resultSet.getString( "Prenom" ) );
         prof.setMail( resultSet.getString( "Mail" ) );
@@ -101,7 +102,7 @@ public class ProfesseurDaoImpl implements ProfesseurDao {
             valeursAutoGenerees = preparedStatement.getGeneratedKeys();
             if ( valeursAutoGenerees.next() ) {
             /* Puis initialisation de la propriété id du bean Utilisateur avec sa valeur */
-                prof.setId( valeursAutoGenerees.getInt( 1 ) );
+                prof.setIdProfesseur( valeursAutoGenerees.getInt( 1 ) );
             } else {
                 throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
             }

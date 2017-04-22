@@ -1,8 +1,9 @@
 package dao;
 
-import beans.UvEntity;
 import dao.InterfaceDao.UvDao;
 import static dao.DAOUtilitaire.*;
+import beans.UvEntity;
+import beans.ProfesseurEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +26,7 @@ public class UvDaoImpl implements UvDao{
 
     private static UvEntity map(ResultSet resultSet ) throws SQLException {
         UvEntity uv = new UvEntity();
-        uv.setId( resultSet.getInt( "Id" ) );
+        uv.setIdUv( resultSet.getInt( "IdUv" ) );
         uv.setIdentifiant( resultSet.getString( "Identifiant" ) );
         uv.setDescription( resultSet.getString( "Description" ) );
         return uv;
@@ -37,7 +38,8 @@ public class UvDaoImpl implements UvDao{
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         List<UvEntity> listUv = new ArrayList<UvEntity>();
-        String SQL_SELECT_PAR_EMAIL = "SELECT * FROM uv";
+        List<ProfesseurEntity> listProf = new ArrayList<ProfesseurEntity>();
+        String SQL_SELECT_PAR_EMAIL = "SELECT * FROM uv, professeur WHERE Responsable = IdProfesseur;";
 
         try {
         /* Récupération d'une connexion depuis la Factory */
@@ -46,7 +48,9 @@ public class UvDaoImpl implements UvDao{
             resultSet = preparedStatement.executeQuery();
         /* Parcours de la ligne de données de l'éventuel ResulSet retourné */
             while(resultSet.next()){
-                listUv.add(map(resultSet));
+                UvEntity uv = map(resultSet);
+                uv.setProfesseurByResponsable(ProfesseurDaoImpl.map(resultSet));
+                listUv.add(uv);
             }
         } catch ( SQLException e ) {
             throw new DAOException( e );
@@ -86,7 +90,7 @@ public class UvDaoImpl implements UvDao{
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
         ResultSet valeursAutoGenerees = null;
-        String SQL_INSERT = "INSERT INTO uv (Identifiant, Description) VALUES (?, ?)";
+        String SQL_INSERT = "INSERT INTO uv (Identifiant, Responsable, Description) VALUES (?, ?, ?)";
         try {
         /* Récupération d'une connexion depuis la Factory */
             connexion = daoFactory.getConnection();
@@ -100,7 +104,7 @@ public class UvDaoImpl implements UvDao{
             valeursAutoGenerees = preparedStatement.getGeneratedKeys();
             if ( valeursAutoGenerees.next() ) {
             /* Puis initialisation de la propriété id du bean Utilisateur avec sa valeur */
-                uv.setId( valeursAutoGenerees.getInt( 1 ) );
+                uv.setIdUv( valeursAutoGenerees.getInt( 1 ) );
             } else {
                 throw new DAOException( "Échec de la création de l'utilisateur en base, aucun ID auto-généré retourné." );
             }

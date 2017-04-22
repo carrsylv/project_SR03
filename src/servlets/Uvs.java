@@ -1,8 +1,8 @@
 package servlets;
 
-import beans.UvEntity;
 import dao.DAOFactory;
 import dao.InterfaceDao.UvDao;
+import beans.UvEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

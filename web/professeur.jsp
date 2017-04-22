@@ -31,7 +31,7 @@
                 for(ProfesseurEntity u : lu){
         %>
         <tr>
-            <td><%=u.getId()%></td>
+            <td><%=u.getIdProfesseur()%></td>
             <td><%=u.getNom()%></td>
             <td><%=u.getPrenom()%></td>
             <td><%=u.getMail()%></td>
@@ -47,7 +47,7 @@
         if(obj != null){
             ProfesseurEntity prof = (ProfesseurEntity) obj;
             %> <p>Résultat de la recherche par adresse mail :
-            <% out.println(prof.getId() + " " + prof.getNom() + " " +  prof.getPrenom() + " " + prof.getMail());%>
+            <% out.println(prof.getIdProfesseur() + " " + prof.getNom() + " " +  prof.getPrenom() + " " + prof.getMail());%>
             </p> <%
         }
     %>

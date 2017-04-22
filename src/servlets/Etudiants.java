@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-import beans.EtudiantEntity;
 import dao.DAOFactory;
 import dao.InterfaceDao.EtudiantDao;
+import beans.EtudiantEntity;
 //import forms.InscriptionForm;
 
 @WebServlet(name = "Etudiants")

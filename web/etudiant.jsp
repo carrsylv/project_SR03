@@ -29,7 +29,7 @@
                 for(EtudiantEntity u : lu){
         %>
         <tr>
-            <td><%=u.getId()%></td>
+            <td><%=u.getIdEtudiant()%></td>
             <td><%=u.getNom()%></td>
             <td><%=u.getPrenom()%></td>
             <td><%=u.getMail()%></td>

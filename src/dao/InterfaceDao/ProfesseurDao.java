@@ -1,6 +1,6 @@
 package dao.InterfaceDao;
-
 import beans.ProfesseurEntity;
+
 import dao.DAOException;
 
 import java.util.List;

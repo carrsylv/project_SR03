@@ -23,6 +23,8 @@
             <th>Id</th>
             <th>Identifiant</th>
             <th>Description</th>
+            <th>Nom</th>
+            <th>Prenom</th>
         </tr>
         <%
             Object obj = request.getAttribute("listeUv");
@@ -31,9 +33,11 @@
                 for(UvEntity u : lu){
         %>
         <tr>
-            <td><%=u.getId()%></td>
+            <td><%=u.getIdUv()%></td>
             <td><%=u.getIdentifiant()%></td>
             <td><%=u.getDescription()%></td>
+            <td><%=u.getProfesseurByResponsable().getNom()%></td>
+            <td><%=u.getProfesseurByResponsable().getPrenom()%></td>
         </tr>
         <%
                 }
@@ -46,7 +50,7 @@
         if(obj != null){
             UvEntity prof = (UvEntity) obj;
     %> <p>Résultat de la recherche par adresse mail :
-        <% out.println(prof.getId() + " " + prof.getIdentifiant());%>
+        <% out.println(prof.getIdUv() + " " + prof.getIdentifiant());%>
     </p> <%
         }
     %>
