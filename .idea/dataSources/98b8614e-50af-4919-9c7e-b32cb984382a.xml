@@ -14,7 +14,7 @@
     <schema id="8" parent="1" name="world"/>
     <table id="9" parent="2" name="creneau"/>
     <table id="10" parent="2" name="etudiant"/>
-    <table id="11" parent="2" name="horraire"/>
+    <table id="11" parent="2" name="horaire"/>
     <table id="12" parent="2" name="participation"/>
     <table id="13" parent="2" name="professeur"/>
     <table id="14" parent="2" name="uv"/>
@@ -37,26 +37,26 @@
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="9" name="Horraire">
-      <Position>3</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="20" parent="9" name="Groupe">
+    <column id="19" parent="9" name="Groupe">
       <Position>6</Position>
       <DataType>varchar(8)|0</DataType>
     </column>
-    <column id="21" parent="9" name="IdCreneau">
+    <column id="20" parent="9" name="IdCreneau">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <index id="22" parent="9" name="Horraire">
-      <ColNames>Horraire</ColNames>
-    </index>
-    <index id="23" parent="9" name="Uv">
+    <column id="21" parent="9" name="Horaire">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="22" parent="9" name="Uv">
       <ColNames>Uv</ColNames>
+    </index>
+    <index id="23" parent="9" name="Horaire">
+      <ColNames>Horaire</ColNames>
     </index>
     <key id="24" parent="9" name="PRIMARY">
       <ColNames>IdCreneau</ColNames>
@@ -69,10 +69,10 @@
       <RefColNames>IdUv</RefColNames>
     </foreign-key>
     <foreign-key id="26" parent="9" name="creneau_ibfk_2">
-      <ColNames>Horraire</ColNames>
+      <ColNames>Horaire</ColNames>
       <RefSchemaName>sr03_project</RefSchemaName>
-      <RefTableName>horraire</RefTableName>
-      <RefColNames>IdHorraire</RefColNames>
+      <RefTableName>horaire</RefTableName>
+      <RefColNames>IdHoraire</RefColNames>
     </foreign-key>
     <column id="27" parent="10" name="Nom">
       <Position>2</Position>
@@ -118,29 +118,29 @@
       <ColNames>IdEtudiant</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="36" parent="11" name="Heure_début">
-      <Position>2</Position>
-      <DataType>time|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="37" parent="11" name="Heure_fin">
-      <Position>3</Position>
-      <DataType>time|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="38" parent="11" name="Jour_semaine">
-      <Position>4</Position>
-      <DataType>varchar(15)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="39" parent="11" name="IdHorraire">
+    <column id="36" parent="11" name="IdHoraire">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
+    <column id="37" parent="11" name="Heure_debut">
+      <Position>2</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="11" name="Heure_fin">
+      <Position>3</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="11" name="Jour_semaine">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
     <key id="40" parent="11" name="PRIMARY">
-      <ColNames>IdHorraire</ColNames>
+      <ColNames>IdHoraire</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="41" parent="12" name="Etu">

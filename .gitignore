@@ -1,1 +1,6 @@
+.idea
+lib
+out
+beans
 dao.properties
+Edt_jee.iml
