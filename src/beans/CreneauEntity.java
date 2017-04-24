@@ -13,11 +13,11 @@ public class CreneauEntity {
     private String type;
     private String alternance;
     private int uv;
-    private int horraire;
     private String groupe;
     private int idCreneau;
+    private int horaire;
     private UvEntity uvByUv;
-    private HorraireEntity horraireByHorraire;
+    private HoraireEntity horaireByHoraire;
     private Collection<ParticipationEntity> participationsByIdCreneau;
 
     @Basic
@@ -61,16 +61,6 @@ public class CreneauEntity {
     }
 
     @Basic
-    @Column(name = "Horraire")
-    public int getHorraire() {
-        return horraire;
-    }
-
-    public void setHorraire(int horraire) {
-        this.horraire = horraire;
-    }
-
-    @Basic
     @Column(name = "Groupe")
     public String getGroupe() {
         return groupe;
@@ -90,6 +80,16 @@ public class CreneauEntity {
         this.idCreneau = idCreneau;
     }
 
+    @Basic
+    @Column(name = "Horaire")
+    public int getHoraire() {
+        return horaire;
+    }
+
+    public void setHoraire(int horaire) {
+        this.horaire = horaire;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,8 +98,8 @@ public class CreneauEntity {
         CreneauEntity that = (CreneauEntity) o;
 
         if (uv != that.uv) return false;
-        if (horraire != that.horraire) return false;
         if (idCreneau != that.idCreneau) return false;
+        if (horaire != that.horaire) return false;
         if (salle != null ? !salle.equals(that.salle) : that.salle != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
         if (alternance != null ? !alternance.equals(that.alternance) : that.alternance != null) return false;
@@ -114,9 +114,9 @@ public class CreneauEntity {
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (alternance != null ? alternance.hashCode() : 0);
         result = 31 * result + uv;
-        result = 31 * result + horraire;
         result = 31 * result + (groupe != null ? groupe.hashCode() : 0);
         result = 31 * result + idCreneau;
+        result = 31 * result + horaire;
         return result;
     }
 
@@ -131,13 +131,13 @@ public class CreneauEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "Horraire", referencedColumnName = "IdHorraire", nullable = false)
-    public HorraireEntity getHorraireByHorraire() {
-        return horraireByHorraire;
+    @JoinColumn(name = "Horaire", referencedColumnName = "IdHoraire", nullable = false)
+    public HoraireEntity getHoraireByHoraire() {
+        return horaireByHoraire;
     }
 
-    public void setHorraireByHorraire(HorraireEntity horraireByHorraire) {
-        this.horraireByHorraire = horraireByHorraire;
+    public void setHoraireByHoraire(HoraireEntity horaireByHoraire) {
+        this.horaireByHoraire = horaireByHoraire;
     }
 
     @OneToMany(mappedBy = "creneauByCren")

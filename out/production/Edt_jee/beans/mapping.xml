@@ -20,17 +20,17 @@
             <basic name="uv">
                 <column name="Uv"/>
             </basic>
-            <basic name="horraire">
-                <column name="Horraire"/>
-            </basic>
             <basic name="groupe">
                 <column name="Groupe"/>
+            </basic>
+            <basic name="horaire">
+                <column name="Horaire"/>
             </basic>
             <many-to-one name="uvByUv" optional="true" target-entity="beans.UvEntity">
                 <join-column name="Uv" referenced-column-name="IdUv"/>
             </many-to-one>
-            <many-to-one name="horraireByHorraire" optional="true" target-entity="beans.HorraireEntity">
-                <join-column name="Horraire" referenced-column-name="IdHorraire"/>
+            <many-to-one name="horaireByHoraire" optional="true" target-entity="beans.HoraireEntity">
+                <join-column name="Horaire" referenced-column-name="IdHoraire"/>
             </many-to-one>
             <one-to-many name="participationsByIdCreneau" mapped-by="creneauByCren"
                          target-entity="beans.ParticipationEntity"/>
@@ -67,14 +67,14 @@
                          target-entity="beans.ParticipationEntity"/>
         </attributes>
     </entity>
-    <entity class="beans.HorraireEntity">
-        <table name="horraire" schema="sr03_project" catalog=""/>
+    <entity class="beans.HoraireEntity">
+        <table name="horaire" schema="sr03_project" catalog=""/>
         <attributes>
-            <id name="idHorraire">
-                <column name="IdHorraire"/>
+            <id name="idHoraire">
+                <column name="IdHoraire"/>
             </id>
-            <basic name="heureDébut">
-                <column name="Heure_début"/>
+            <basic name="heureDebut">
+                <column name="Heure_debut"/>
             </basic>
             <basic name="heureFin">
                 <column name="Heure_fin"/>
@@ -82,8 +82,7 @@
             <basic name="jourSemaine">
                 <column name="Jour_semaine"/>
             </basic>
-            <one-to-many name="creneausByIdHorraire" mapped-by="horraireByHorraire"
-                         target-entity="beans.CreneauEntity"/>
+            <one-to-many name="creneausByIdHoraire" mapped-by="horaireByHoraire" target-entity="beans.CreneauEntity"/>
         </attributes>
     </entity>
     <entity class="beans.ParticipationEntity">

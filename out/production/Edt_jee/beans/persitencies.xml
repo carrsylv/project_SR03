@@ -5,7 +5,7 @@
         <mapping-file>beans/mapping.xml</mapping-file>
         <class>beans.CreneauEntity</class>
         <class>beans.EtudiantEntity</class>
-        <class>beans.HorraireEntity</class>
+        <class>beans.HoraireEntity</class>
         <class>beans.ParticipationEntity</class>
         <class>beans.ProfesseurEntity</class>
         <class>beans.UvEntity</class>
