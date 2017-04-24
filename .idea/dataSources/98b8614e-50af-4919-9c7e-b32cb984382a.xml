@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="sr03_project@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="sr03_project">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sakila"/>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="world"/>
+    <table id="9" parent="2" name="creneau"/>
+    <table id="10" parent="2" name="etudiant"/>
+    <table id="11" parent="2" name="horraire"/>
+    <table id="12" parent="2" name="participation"/>
+    <table id="13" parent="2" name="professeur"/>
+    <table id="14" parent="2" name="uv"/>
+    <column id="15" parent="9" name="Salle">
+      <Position>4</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="16" parent="9" name="Type">
+      <Position>5</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="9" name="Alternance">
+      <Position>7</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="9" name="Uv">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="9" name="Horraire">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="9" name="Groupe">
+      <Position>6</Position>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="21" parent="9" name="IdCreneau">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="22" parent="9" name="Horraire">
+      <ColNames>Horraire</ColNames>
+    </index>
+    <index id="23" parent="9" name="Uv">
+      <ColNames>Uv</ColNames>
+    </index>
+    <key id="24" parent="9" name="PRIMARY">
+      <ColNames>IdCreneau</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="25" parent="9" name="creneau_ibfk_1">
+      <ColNames>Uv</ColNames>
+      <RefSchemaName>sr03_project</RefSchemaName>
+      <RefTableName>uv</RefTableName>
+      <RefColNames>IdUv</RefColNames>
+    </foreign-key>
+    <foreign-key id="26" parent="9" name="creneau_ibfk_2">
+      <ColNames>Horraire</ColNames>
+      <RefSchemaName>sr03_project</RefSchemaName>
+      <RefTableName>horraire</RefTableName>
+      <RefColNames>IdHorraire</RefColNames>
+    </foreign-key>
+    <column id="27" parent="10" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="Prenom">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="10" name="Mail">
+      <Position>4</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="10" name="Photo">
+      <Position>5</Position>
+      <DataType>blob|0</DataType>
+    </column>
+    <column id="31" parent="10" name="Semestre">
+      <Position>6</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="10" name="Cursus">
+      <Position>7</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="10" name="Niveau">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="10" name="IdEtudiant">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <key id="35" parent="10" name="PRIMARY">
+      <ColNames>IdEtudiant</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="11" name="Heure_début">
+      <Position>2</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="11" name="Heure_fin">
+      <Position>3</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="11" name="Jour_semaine">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="11" name="IdHorraire">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <key id="40" parent="11" name="PRIMARY">
+      <ColNames>IdHorraire</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="12" name="Etu">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="12" name="Cren">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="43" parent="12" name="Cren">
+      <ColNames>Cren</ColNames>
+    </index>
+    <key id="44" parent="12" name="PRIMARY">
+      <ColNames>Etu
+Cren</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="12" name="participation_ibfk_1">
+      <ColNames>Etu</ColNames>
+      <RefSchemaName>sr03_project</RefSchemaName>
+      <RefTableName>etudiant</RefTableName>
+      <RefColNames>IdEtudiant</RefColNames>
+    </foreign-key>
+    <foreign-key id="46" parent="12" name="participation_ibfk_2">
+      <ColNames>Cren</ColNames>
+      <RefSchemaName>sr03_project</RefSchemaName>
+      <RefTableName>creneau</RefTableName>
+      <RefColNames>IdCreneau</RefColNames>
+    </foreign-key>
+    <column id="47" parent="13" name="Nom">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="13" name="Prenom">
+      <Position>3</Position>
+      <DataType>varchar(40)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="13" name="Mail">
+      <Position>4</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="13" name="Photo">
+      <Position>5</Position>
+      <DataType>blob|0</DataType>
+    </column>
+    <column id="51" parent="13" name="IdProfesseur">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <key id="52" parent="13" name="PRIMARY">
+      <ColNames>IdProfesseur</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="14" name="Identifiant">
+      <Position>2</Position>
+      <DataType>varchar(5)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="14" name="Description">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="55" parent="14" name="Responsable">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="14" name="IdUv">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="57" parent="14" name="Responsable">
+      <ColNames>Responsable</ColNames>
+    </index>
+    <key id="58" parent="14" name="PRIMARY">
+      <ColNames>IdUv</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="59" parent="14" name="uv_ibfk_1">
+      <ColNames>Responsable</ColNames>
+      <RefSchemaName>sr03_project</RefSchemaName>
+      <RefTableName>professeur</RefTableName>
+      <RefColNames>IdProfesseur</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

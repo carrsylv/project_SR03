@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Edt_jee:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Edt_jee_war_exploded.war</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Edt_jee/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Edt_jee" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.41-bin" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
